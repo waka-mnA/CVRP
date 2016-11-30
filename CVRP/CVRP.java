@@ -193,7 +193,6 @@ public class CVRP{
     int node2 = 1;
     int capacity = data.getDemand(c.get(0));
     while(i<c.get_length()){
-
       capacity+= data.getDemand(c.get(i));
       node2 = c.get(i);
       if (capacity>Q) node2 = 1;
@@ -204,7 +203,6 @@ public class CVRP{
         sum+= data.getDistance(1, c.get(i));
         capacity = data.getDemand(c.get(i));
       }
-
       i++;
     }
     return sum;
@@ -272,7 +270,7 @@ public class CVRP{
       System.out.println("DATA END");
       Chromosome c = new Chromosome(9);
       Chromosome c2 = new Chromosome(9);
-      int[] test1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+      int[] test1 = {10, 2, 3, 4, 5, 6, 7, 8, 9};
       int[] test2 = {3, 8, 5, 4, 9, 2, 7, 6, 1};
       for (int i = 0;i<9;i++){
         c.set_gene(i, test1[i]);
@@ -281,6 +279,8 @@ public class CVRP{
       int range1 = 3;
       int range2 = 6;
       //cvrp.order_crossover(c, c2, range1, range2);
+      double costtest = cvrp.cost(c);
+      System.out.println(costtest);
       cvrp.genetic_alg();
 
       System.out.println("GA END");
