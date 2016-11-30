@@ -189,7 +189,6 @@ public class CVRP{
     double sum = 0;
     sum += data.getDistance(1, c.get(0));
     int i = 1;
-    int node1 = 1;
     int node2 = 1;
     int capacity = data.getDemand(c.get(0));
     while(i<c.get_length()){
@@ -205,6 +204,8 @@ public class CVRP{
       }
       i++;
     }
+    sum+= data.getDistance(c.get(i-1), 1);
+
     return sum;
   }
   //Calculate fitness = total sum  of distances for each route
@@ -268,19 +269,19 @@ public class CVRP{
       CVRP cvrp = new CVRP();
       cvrp.get_data();
       System.out.println("DATA END");
-      Chromosome c = new Chromosome(9);
-      Chromosome c2 = new Chromosome(9);
-      int[] test1 = {10, 2, 3, 4, 5, 6, 7, 8, 9};
-      int[] test2 = {3, 8, 5, 4, 9, 2, 7, 6, 1};
-      for (int i = 0;i<9;i++){
-        c.set_gene(i, test1[i]);
-          c2.set_gene(i, test2[i]);
-      }
-      int range1 = 3;
-      int range2 = 6;
+      // Chromosome c = new Chromosome(9);
+      // Chromosome c2 = new Chromosome(9);
+      // int[] test1 = {10, 2, 3, 4, 5, 6, 7, 8, 9};
+      // int[] test2 = {3, 8, 5, 4, 9, 2, 7, 6, 1};
+      // for (int i = 0;i<9;i++){
+      //   c.set_gene(i, test1[i]);
+      //     c2.set_gene(i, test2[i]);
+      // }
+      // int range1 = 3;
+      // int range2 = 6;
       //cvrp.order_crossover(c, c2, range1, range2);
-      double costtest = cvrp.cost(c);
-      System.out.println(costtest);
+      //double costtest = cvrp.cost(c);
+      //System.out.println(costtest);
       cvrp.genetic_alg();
 
       System.out.println("GA END");
