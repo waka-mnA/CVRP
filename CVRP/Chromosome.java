@@ -52,4 +52,11 @@ public class Chromosome{
   public int[] get_range(int i1, int i2){
     return Arrays.copyOfRange(c, i1, i2);
   }
+  public boolean contain(int node){
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    for (int i = 0;i<length;i++){
+      list.add(c[i]);
+    }
+    return list.contains(node);
+  }
 }
